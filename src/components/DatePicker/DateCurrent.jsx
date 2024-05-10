@@ -5,32 +5,52 @@ function DateCurrent({ currentDay, setCurMonthArray, curMonthArray, index }) {
             date: currentDay.date,
             selected: true,
         };
-        //alert(currentDay.date.date());
-        console.log("currentDay----------------" + currentDay.date.date());
         updateElementAtIndex(index, calendarDay);
-        console.log(currentDay.date.date());
     }
     const updateElementAtIndex = (index, newElement) => {
         const newArray = [...curMonthArray];
         newArray[index] = newElement;
-        console.table("table");
-        console.table(newArray);
-        console.log("updateElementAtIndex----------------" + newArray[index].toString());
-        //alert(newElement.date.toString());
         setCurMonthArray(newArray);
     };
     return (
-        <SelectDate onClick={SelectDateClick}>
-            {currentDay.date.year() !== 1000 && currentDay.date.date()}
-        </SelectDate>
+        <Container onClick={SelectDateClick}>
+            {currentDay.selected === true && currentDay.date.year() !== 1000 && (
+                <SelectDate>{currentDay.date.date()}</SelectDate>
+            )}
+            {currentDay.selected === false && currentDay.date.year() !== 1000 && (
+                <NotSelectDate>{currentDay.date.date()}</NotSelectDate>
+            )}
+        </Container>
     );
 }
 
 export default DateCurrent;
+const Container = styled.div`
+    font-size: 13px;
+    position: relative;
+    font-weight: 500;
+`;
 const SelectDate = styled.div`
-    padding: 2px;
+    border-radius: 50px;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #222222;
+`;
+const NotSelectDate = styled.div`
+    border-radius: 50px;
+    color: black;
+    background-color: white;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
-        color: white;
-        background-color: blue;
+        border-color: #222222;
+        border-width: 2px;
     }
 `;

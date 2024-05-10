@@ -62,12 +62,12 @@ function DateRangePicker() {
         <PickerWrapper>
             <Header>
                 <FaChevronLeft />
-                <div>
+                <CalendarContainer>
                     <Title>
                         <div>{monthNames[currentMonth]}</div>
                         <div>{currentYear}</div>
                     </Title>
-                    <div className="flex flex-row gap-5">
+                    <div className="flex flex-row gap-[25px] ml-2 mb-4">
                         <DayTitle>Su</DayTitle>
                         <DayTitle>Mo</DayTitle>
                         <DayTitle>Tu</DayTitle>
@@ -88,20 +88,8 @@ function DateRangePicker() {
                             ))}
                         </SevenColGrid>
                     )}
-                    {curMonthArray.length > 0 && (
-                        <SevenColGrid>
-                            {curMonthArray.map((currentDay) => (
-                                <div>
-                                    {currentDay.selected === false ? (
-                                        <div>false</div>
-                                    ) : (
-                                        <div>true</div>
-                                    )}
-                                </div>
-                            ))}
-                        </SevenColGrid>
-                    )}
-                </div>
+                </CalendarContainer>
+
                 <FaChevronRight />
             </Header>
         </PickerWrapper>
@@ -130,7 +118,7 @@ const SevenColGrid = styled.div`
     /* margin-left: 200px; */
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 18px;
+    gap: 3px;
 `;
 const Title = styled.div`
     display: flex;
@@ -141,18 +129,15 @@ const Title = styled.div`
 const DayTitle = styled.div`
     color: gray;
 `;
-const SelectDate = styled.div`
-    padding: 2px;
-    &:hover {
-        color: white;
-        background-color: blue;
-    }
+const CalendarContainer = styled.div`
+    width: 300px;
+    /* background-color: lightblue; */
 `;
 // {
 //     curMonthArray.length > 0 && (
 //         <SevenColGrid>
-//             {curMonthArray.map((item) => (
-//                 <div className="mr-[22px]">{item}</div>
+//             {curMonthArray.map((currentDay) => (
+//                 <div>{currentDay.selected === false ? <div>false</div> : <div>true</div>}</div>
 //             ))}
 //         </SevenColGrid>
 //     );
