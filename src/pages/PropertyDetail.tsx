@@ -149,7 +149,6 @@ const Translate = styled.div`
     display: flex;
     margin-top: 30px;
     gap: 10px;
-
     height: 50px;
     align-items: center;
 `;
