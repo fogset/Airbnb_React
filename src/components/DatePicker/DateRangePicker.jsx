@@ -3,6 +3,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { monthNames, yearName, dayName } from "./constant";
 import moment from "moment";
 import React, { useState, useEffect } from "react";
+import DateCurrent from "./DateCurrent";
 function DateRangePicker() {
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -77,10 +78,26 @@ function DateRangePicker() {
                     </div>
                     {curMonthArray.length > 0 && (
                         <SevenColGrid>
-                            {curMonthArray.map((item) => (
-                                <SelectDate>
-                                    {item.date.year() !== 1000 && item.date.date()}
-                                </SelectDate>
+                            {curMonthArray.map((currentDay, index) => (
+                                <DateCurrent
+                                    index={index}
+                                    currentDay={currentDay}
+                                    setCurMonthArray={setCurMonthArray}
+                                    curMonthArray={curMonthArray}
+                                />
+                            ))}
+                        </SevenColGrid>
+                    )}
+                    {curMonthArray.length > 0 && (
+                        <SevenColGrid>
+                            {curMonthArray.map((currentDay) => (
+                                <div>
+                                    {currentDay.selected === false ? (
+                                        <div>false</div>
+                                    ) : (
+                                        <div>true</div>
+                                    )}
+                                </div>
                             ))}
                         </SevenColGrid>
                     )}
