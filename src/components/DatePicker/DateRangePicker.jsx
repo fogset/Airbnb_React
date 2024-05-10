@@ -1,55 +1,56 @@
 import styled from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { monthNames, yearName, dayName } from "./constant";
-
+import moment from "moment";
 import React, { useState, useEffect } from "react";
 function DateRangePicker() {
-    const numDays = (y, m) => new Date(y, m, 0).getDate();
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-    const [daysArray, setDayArray] = useState([]);
-    const [currentDays, setCurrentDays] = useState([]);
-    var testArray = [];
+    const [curMonthArray, setCurMonthArray] = useState([]);
+
     let firstDayOfMonth = new Date(currentYear, currentMonth - 1, 1);
     let weekdayOfFirstDay = firstDayOfMonth.getDay();
 
-    function DaysCurrentMonth() {
-        for (var i = 1; i <= numDays(currentYear, currentMonth); i++) {
-            testArray.push(i);
-        }
-        setDayArray(testArray);
+    function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
     }
-    function GetCalendarDay() {
-        for (let day = 0; day < 42; day++) {
-            if (currentDays.length > 34) {
-                break;
-            }
-            if (day === 0 && weekdayOfFirstDay === 0) {
-                firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7);
-            } else if (day === 0) {
-                firstDayOfMonth.setDate(firstDayOfMonth.getDate() + (day - weekdayOfFirstDay));
-            } else {
-                firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1);
-            }
+    function DateToStrMDY(month, day, year) {
+        var monthS = month.toString();
+        var dayS = day.toString();
+        var yearS = year.toString();
+        var resultDate = monthS + "/" + dayS + "/" + yearS;
+        return resultDate;
+    }
+    function GetMomentsThisMonths(month, year) {
+        var TempArray = [];
+        var currentMonthDays = daysInMonth(month, year);
+        var day = 1;
+        while (day <= currentMonthDays) {
+            const curDate = moment(DateToStrMDY(month, day, year), "MM-DD-YYYY");
             let calendarDay = {
-                currentMonth: currentMonth,
-                date: new Date(firstDayOfMonth),
-                month: firstDayOfMonth.getMonth(),
-                number: firstDayOfMonth.getDate(),
-                selected: 2,
-                year: firstDayOfMonth.getFullYear(),
+                date: curDate,
+                selected: false,
             };
-            currentDays.push(calendarDay);
+            TempArray.push(calendarDay);
+            day++;
         }
-        setDayArray(testArray);
+        setCurMonthArray(TempArray);
     }
     useEffect(() => {
-        console.log("firstDayOfMonth:" + firstDayOfMonth);
-        console.log("weekdayOfFirstDay:" + weekdayOfFirstDay);
-        GetCalendarDay();
-        DaysCurrentMonth();
+        console.log("firstDayOfMonth" + firstDayOfMonth);
+        console.log("weekdayOfFirstDay" + weekdayOfFirstDay);
+        console.log("moments:" + moment().format("DD-MM-YYYY"));
+        const randomDate = moment(DateToStrMDY(5, 10, 2024), "MM-DD-YYYY");
+        console.log("randomDate month:" + randomDate.month());
+        console.log("randomDate year:" + randomDate.year());
+        console.log("randomDate" + randomDate);
+        // var admission = moment("{date1}", "DD-MM-YYYY");
+        // var discharge = moment("{date2}", "DD-MM-YYYY");
+        // discharge.diff(admission, "days");
+
+        GetMomentsThisMonths(5, 2024);
         console.table("table");
-        console.table(currentDays);
+        console.table(curMonthArray);
     }, []);
 
     return (
@@ -70,10 +71,10 @@ function DateRangePicker() {
                         <DayTitle>Fr</DayTitle>
                         <DayTitle>Sa</DayTitle>
                     </div>
-                    {currentDays.length > 0 && (
+                    {curMonthArray.length > 0 && (
                         <SevenColGrid>
-                            {currentDays.map((item) => (
-                                <div className="mr-[22px]">{item.number}</div>
+                            {curMonthArray.map((item) => (
+                                <SelectDate>{item.date.date()}</SelectDate>
                             ))}
                         </SevenColGrid>
                     )}
@@ -105,6 +106,7 @@ const Header = styled.div`
 const SevenColGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    gap: 18px;
 `;
 const Title = styled.div`
     display: flex;
@@ -115,3 +117,19 @@ const Title = styled.div`
 const DayTitle = styled.div`
     color: gray;
 `;
+const SelectDate = styled.div`
+    padding: 2px;
+    &:hover {
+        color: white;
+        background-color: blue;
+    }
+`;
+// {
+//     curMonthArray.length > 0 && (
+//         <SevenColGrid>
+//             {curMonthArray.map((item) => (
+//                 <div className="mr-[22px]">{item}</div>
+//             ))}
+//         </SevenColGrid>
+//     );
+// }
