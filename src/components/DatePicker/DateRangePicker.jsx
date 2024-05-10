@@ -7,9 +7,7 @@ function DateRangePicker() {
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [curMonthArray, setCurMonthArray] = useState([]);
-
-    let firstDayOfMonth = new Date(currentYear, currentMonth - 1, 1);
-    let weekdayOfFirstDay = firstDayOfMonth.getDay();
+    let firstDayOfMonth;
 
     function daysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
@@ -22,9 +20,17 @@ function DateRangePicker() {
         return resultDate;
     }
     function GetMomentsThisMonths(month, year) {
+        firstDayOfMonth = moment(DateToStrMDY(month, 1, year), "MM-DD-YYYY").days();
         var TempArray = [];
         var currentMonthDays = daysInMonth(month, year);
         var day = 1;
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            let calendarDay = {
+                date: moment(DateToStrMDY(1, 7, 1000), "MM-DD-YYYY"),
+                selected: false,
+            };
+            TempArray.push(calendarDay);
+        }
         while (day <= currentMonthDays) {
             const curDate = moment(DateToStrMDY(month, day, year), "MM-DD-YYYY");
             let calendarDay = {
@@ -37,8 +43,6 @@ function DateRangePicker() {
         setCurMonthArray(TempArray);
     }
     useEffect(() => {
-        console.log("firstDayOfMonth" + firstDayOfMonth);
-        console.log("weekdayOfFirstDay" + weekdayOfFirstDay);
         console.log("moments:" + moment().format("DD-MM-YYYY"));
         const randomDate = moment(DateToStrMDY(5, 10, 2024), "MM-DD-YYYY");
         console.log("randomDate month:" + randomDate.month());
@@ -48,7 +52,7 @@ function DateRangePicker() {
         // var discharge = moment("{date2}", "DD-MM-YYYY");
         // discharge.diff(admission, "days");
 
-        GetMomentsThisMonths(5, 2024);
+        GetMomentsThisMonths(3, 2024);
         console.table("table");
         console.table(curMonthArray);
     }, []);
@@ -74,7 +78,9 @@ function DateRangePicker() {
                     {curMonthArray.length > 0 && (
                         <SevenColGrid>
                             {curMonthArray.map((item) => (
-                                <SelectDate>{item.date.date()}</SelectDate>
+                                <SelectDate>
+                                    {item.date.year() !== 1000 && item.date.date()}
+                                </SelectDate>
                             ))}
                         </SevenColGrid>
                     )}
@@ -104,6 +110,7 @@ const Header = styled.div`
     }
 `;
 const SevenColGrid = styled.div`
+    /* margin-left: 200px; */
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 18px;
