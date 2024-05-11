@@ -5,9 +5,9 @@ function DateCurrent({ currentDay, setCurMonthArray, curMonthArray, index }) {
             date: currentDay.date,
             selected: true,
         };
-        updateElementAtIndex(index, calendarDay);
+        updateArrayAtIndex(index, calendarDay);
     }
-    const updateElementAtIndex = (index, newElement) => {
+    const updateArrayAtIndex = (index, newElement) => {
         const newArray = [...curMonthArray];
         newArray[index] = newElement;
         setCurMonthArray(newArray);
@@ -53,4 +53,5 @@ const NotSelectDate = styled.div`
         border-color: #222222;
         border-width: 2px;
     }
+    //text-decoration: line-through;
 `;
