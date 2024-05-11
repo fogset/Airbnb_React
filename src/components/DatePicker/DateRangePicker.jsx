@@ -1,33 +1,68 @@
 import styled from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import { monthNames } from "./constant";
 import moment from "moment";
 import React, { useState, useEffect } from "react";
-import DateCurrent from "./DateCurrent";
 import SingleCalendar from "./SingleCalendar";
 function DateRangePicker() {
-    // const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+    //const [currentMonth, setCurrentMonth] = useState(moment().calendar());
+    var currentMonth = moment();
+
     // const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [calMonth1, setCalMonth1] = useState(new Date().getMonth());
+    const [calYear1, setCalYear1] = useState(new Date().getFullYear());
+    const [calMonth2, setCalMonth2] = useState(new Date().getMonth() + 1);
+    const [calYear2, setCalYear2] = useState(new Date().getFullYear());
     function previousMonth() {
-        setCurrentMonth(currentMonth - 1);
+        setCalMonth1(calMonth1 - 1);
+        setCalMonth2(calMonth2 - 1);
     }
     function nextMonth() {
-        setCurrentMonth(currentMonth + 1);
+        setCalMonth1(calMonth1 + 1);
+        setCalMonth2(calMonth2 + 1);
+    }
+    function previousYear(setMonth, setYear, year) {
+        setYear(year - 1);
+        setMonth(12);
+    }
+    function nextYear(setMonth, setYear, year) {
+        setYear(year + 1);
+        setMonth(1);
     }
     useEffect(() => {
-        console.table("table");
-    }, []);
+        if (calMonth1 === 0) {
+            previousYear(setCalMonth1, setCalYear1, calYear1);
+        }
+        if (calMonth2 === 0) {
+            previousYear(setCalMonth2, setCalYear2, calYear2);
+        }
+        if (calMonth1 === 12) {
+            nextYear(setCalMonth1, setCalYear1, calYear1);
+        }
+        if (calMonth2 === 12) {
+            nextYear(setCalMonth2, setCalYear2, calYear2);
+        }
+    }, [currentMonth]);
+    useEffect(() => {
+        console.log("currentMonth:" + currentMonth.add(1, "month").format("l"));
+        console.log("currentMonth:" + currentMonth.add(2, "month").format("l"));
+        console.log("currentMonth:" + currentMonth.add(2, "month").format("l"));
+        //console.log("b:" + b.format());
+        // console.log(moment().format());
+        // console.log("Current month is:", moment().month());
+
+        //alert(moment());
+    }, [calMonth1, calMonth2]);
 
     return (
         <PickerWrapper>
+            calendar 1 -------{calMonth1}--{calYear1}/////// calendar 2 -------{calMonth2}--
+            {calYear2}
             <LeftIcon onClick={previousMonth}>
                 <FaChevronLeft />
             </LeftIcon>
             <DoubleCalendarContainer>
-                <SingleCalendar month={currentMonth} year={currentYear} />
-                <SingleCalendar month={currentMonth + 1} year={currentYear} />
+                <SingleCalendar month={calMonth1} year={calYear1} />
+                <SingleCalendar month={calMonth2} year={calYear2} />
             </DoubleCalendarContainer>
             <RightIcon onClick={nextMonth}>
                 <FaChevronRight />
@@ -53,13 +88,31 @@ const DoubleCalendarContainer = styled.div`
 `;
 const LeftIcon = styled.div`
     position: absolute;
-    left: 10px;
-    top: 7px;
+    left: 2px;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    &:hover {
+        background-color: grey;
+    }
 `;
 const RightIcon = styled.div`
     position: absolute;
-    right: 10px;
-    top: 7px;
+    right: 2px;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    &:hover {
+        background-color: grey;
+    }
 `;
 // {
 //     curMonthArray.length > 0 && (
