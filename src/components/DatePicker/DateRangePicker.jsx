@@ -4,59 +4,46 @@ import moment from "moment";
 import React, { useState, useEffect } from "react";
 import SingleCalendar from "./SingleCalendar";
 function DateRangePicker() {
-    //const [currentMonth, setCurrentMonth] = useState(moment().calendar());
-    var currentMonth = moment();
-
-    // const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [calMonth1, setCalMonth1] = useState(new Date().getMonth());
     const [calYear1, setCalYear1] = useState(new Date().getFullYear());
     const [calMonth2, setCalMonth2] = useState(new Date().getMonth() + 1);
     const [calYear2, setCalYear2] = useState(new Date().getFullYear());
+    //setCurrent("sfdsf");
+    function minRange(month, setMonth, year, setYear) {
+        if (month === 1) {
+            setMonth(12);
+            setYear(year - 1);
+        } else {
+            setMonth(month - 1);
+        }
+    }
+    function maxRange(month, setMonth, year, setYear) {
+        if (month === 12) {
+            setMonth(1);
+            setYear(year + 1);
+        } else {
+            setMonth(month + 1);
+        }
+    }
     function previousMonth() {
-        setCalMonth1(calMonth1 - 1);
-        setCalMonth2(calMonth2 - 1);
+        minRange(calMonth1, setCalMonth1, calYear1, setCalYear1);
+        minRange(calMonth2, setCalMonth2, calYear2, setCalYear2);
     }
     function nextMonth() {
-        setCalMonth1(calMonth1 + 1);
-        setCalMonth2(calMonth2 + 1);
+        maxRange(calMonth1, setCalMonth1, calYear1, setCalYear1);
+        maxRange(calMonth2, setCalMonth2, calYear2, setCalYear2);
     }
-    function previousYear(setMonth, setYear, year) {
-        setYear(year - 1);
-        setMonth(12);
-    }
-    function nextYear(setMonth, setYear, year) {
-        setYear(year + 1);
-        setMonth(1);
-    }
-    useEffect(() => {
-        if (calMonth1 === 0) {
-            previousYear(setCalMonth1, setCalYear1, calYear1);
-        }
-        if (calMonth2 === 0) {
-            previousYear(setCalMonth2, setCalYear2, calYear2);
-        }
-        if (calMonth1 === 12) {
-            nextYear(setCalMonth1, setCalYear1, calYear1);
-        }
-        if (calMonth2 === 12) {
-            nextYear(setCalMonth2, setCalYear2, calYear2);
-        }
-    }, [currentMonth]);
-    useEffect(() => {
-        console.log("currentMonth:" + currentMonth.add(1, "month").format("l"));
-        console.log("currentMonth:" + currentMonth.add(2, "month").format("l"));
-        console.log("currentMonth:" + currentMonth.add(2, "month").format("l"));
-        //console.log("b:" + b.format());
-        // console.log(moment().format());
-        // console.log("Current month is:", moment().month());
 
-        //alert(moment());
-    }, [calMonth1, calMonth2]);
+    useEffect(() => {
+        const date = new Date("May 19, 0000 12:10:52");
+        console.log(date.getTime());
+    }, []);
 
     return (
         <PickerWrapper>
-            calendar 1 -------{calMonth1}--{calYear1}/////// calendar 2 -------{calMonth2}--
-            {calYear2}
+            calendar 1 -------month {calMonth1}--{calYear1}
+            <hr />
+            calendar 2 -------month {calMonth2}--{calYear2}
             <LeftIcon onClick={previousMonth}>
                 <FaChevronLeft />
             </LeftIcon>
