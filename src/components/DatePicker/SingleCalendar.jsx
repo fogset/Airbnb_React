@@ -10,7 +10,7 @@ function SingleCalendar({ month, year }) {
     function daysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
-    function DateToStrMDY(month, day, year) {
+    function DateToStrMMDDYYY(month, day, year) {
         var monthS = month.toString();
         var dayS = day.toString();
         var yearS = year.toString();
@@ -18,19 +18,19 @@ function SingleCalendar({ month, year }) {
         return resultDate;
     }
     function GetMomentsThisMonths(month, year) {
-        firstDayOfMonth = moment(DateToStrMDY(month, 1, year), "MM-DD-YYYY").days();
+        firstDayOfMonth = moment(DateToStrMMDDYYY(month, 1, year), "MM-DD-YYYY").days();
         var TempArray = [];
         var currentMonthDays = daysInMonth(month, year);
         var day = 1;
         for (let i = 0; i < firstDayOfMonth; i++) {
             let calendarDay = {
-                date: moment(DateToStrMDY(1, 7, 1000), "MM-DD-YYYY"),
+                date: moment(DateToStrMMDDYYY(1, 7, 1000), "MM-DD-YYYY"),
                 selected: false,
             };
             TempArray.push(calendarDay);
         }
         while (day <= currentMonthDays) {
-            const curDate = moment(DateToStrMDY(month, day, year), "MM-DD-YYYY");
+            const curDate = moment(DateToStrMMDDYYY(month, day, year), "MM-DD-YYYY");
             let calendarDay = {
                 date: curDate,
                 selected: false,

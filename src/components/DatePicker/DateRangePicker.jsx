@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import moment from "moment";
+import { minRange, maxRange } from "./constant";
 import React, { useState, useEffect } from "react";
 import SingleCalendar from "./SingleCalendar";
 function DateRangePicker() {
@@ -8,23 +8,7 @@ function DateRangePicker() {
     const [calYear1, setCalYear1] = useState(new Date().getFullYear());
     const [calMonth2, setCalMonth2] = useState(new Date().getMonth() + 1);
     const [calYear2, setCalYear2] = useState(new Date().getFullYear());
-    //setCurrent("sfdsf");
-    function minRange(month, setMonth, year, setYear) {
-        if (month === 1) {
-            setMonth(12);
-            setYear(year - 1);
-        } else {
-            setMonth(month - 1);
-        }
-    }
-    function maxRange(month, setMonth, year, setYear) {
-        if (month === 12) {
-            setMonth(1);
-            setYear(year + 1);
-        } else {
-            setMonth(month + 1);
-        }
-    }
+
     function previousMonth() {
         minRange(calMonth1, setCalMonth1, calYear1, setCalYear1);
         minRange(calMonth2, setCalMonth2, calYear2, setCalYear2);
@@ -34,16 +18,8 @@ function DateRangePicker() {
         maxRange(calMonth2, setCalMonth2, calYear2, setCalYear2);
     }
 
-    useEffect(() => {
-        const date = new Date("May 19, 0000 12:10:52");
-        console.log(date.getTime());
-    }, []);
-
     return (
         <PickerWrapper>
-            calendar 1 -------month {calMonth1}--{calYear1}
-            <hr />
-            calendar 2 -------month {calMonth2}--{calYear2}
             <LeftIcon onClick={previousMonth}>
                 <FaChevronLeft />
             </LeftIcon>
@@ -66,7 +42,6 @@ const PickerWrapper = styled.div`
     margin-top: 100px;
     width: fit-content;
     height: 100%;
-
     //background-color: lightblue;
 `;
 const DoubleCalendarContainer = styled.div`
