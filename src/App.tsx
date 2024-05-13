@@ -2,14 +2,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main";
 import styled from "styled-components";
 import PropertyDetail from "./pages/PropertyDetail";
-import DateRangePicker from "./components/DatePicker/DateRangePicker";
 
 function App() {
     return (
         <Container>
-            {/* <Navbar /> */}
-            {/* <PropertyDetail /> */}
-            <DateRangePicker />
+            <Navbar />
+            <PropertyDetail />
         </Container>
     );
 }

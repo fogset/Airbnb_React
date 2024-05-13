@@ -11,6 +11,7 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { TbBeach } from "react-icons/tb";
 import { IoWifiOutline } from "react-icons/io5";
 import { TbToolsKitchen2 } from "react-icons/tb";
+import PropertyDateCount from "../components/properties/PropertyDetail/PropertyDateCount";
 
 function PropertyDetail() {
     return (
@@ -122,6 +123,7 @@ function PropertyDetail() {
                 </div>
                 <AmenityBox>Show all 59 amenities</AmenityBox>
                 <hr />
+                <PropertyDateCount />
             </Description>
         </Container>
     );

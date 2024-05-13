@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { minRange, maxRange } from "./constant";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SingleCalendar from "./SingleCalendar";
 function DateRangePicker() {
     const [calMonth1, setCalMonth1] = useState(new Date().getMonth());
@@ -37,16 +37,14 @@ function DateRangePicker() {
 export default DateRangePicker;
 
 const PickerWrapper = styled.div`
-    margin-left: 100px;
     position: relative;
-    margin-top: 100px;
     width: fit-content;
     height: 100%;
     //background-color: lightblue;
 `;
 const DoubleCalendarContainer = styled.div`
     display: flex;
-    gap: 20px;
+    gap: 35px;
 `;
 const LeftIcon = styled.div`
     position: absolute;

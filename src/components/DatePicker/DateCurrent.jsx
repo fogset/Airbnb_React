@@ -26,7 +26,7 @@ function DateCurrent({ currentDay, setCurMonthArray, curMonthArray, index }) {
 
 export default DateCurrent;
 const Container = styled.div`
-    font-size: 13px;
+    font-size: 16px;
     position: relative;
     font-weight: 500;
 `;
