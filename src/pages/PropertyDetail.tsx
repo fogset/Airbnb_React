@@ -128,7 +128,7 @@ function PropertyDetail() {
                     <PropertyDateCount />
                 </div>
                 <hr />
-                <div className="mt-10">
+                <div className="mt-10 flex">
                     <ReviewTitle />
                 </div>
             </Description>
