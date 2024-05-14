@@ -4,7 +4,7 @@ import DateRangePicker from "./../../DatePicker/DateRangePicker";
 function PropertyDateCount() {
     return (
         <Container>
-            <div className="font-bold text-2xl mt-10">2 nights in Ponta Delgada</div>
+            <div className="font-bold text-2xl">2 nights in Ponta Delgada</div>
             <div className="mt-2 text-lg text-gray-500">Jan 2,2025 - Jan 4,2025</div>
             <div className="mt-4">
                 <DateRangePicker />

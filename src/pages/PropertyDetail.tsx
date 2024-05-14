@@ -12,6 +12,7 @@ import { TbBeach } from "react-icons/tb";
 import { IoWifiOutline } from "react-icons/io5";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import PropertyDateCount from "../components/properties/PropertyDetail/PropertyDateCount";
+import ReviewTitle from "../components/properties/PropertyDetail/ReviewTitle";
 
 function PropertyDetail() {
     return (
@@ -123,7 +124,13 @@ function PropertyDetail() {
                 </div>
                 <AmenityBox>Show all 59 amenities</AmenityBox>
                 <hr />
-                <PropertyDateCount />
+                <div className="mt-12 mb-12">
+                    <PropertyDateCount />
+                </div>
+                <hr />
+                <div className="mt-10">
+                    <ReviewTitle />
+                </div>
             </Description>
         </Container>
     );
