@@ -10,19 +10,23 @@ function Review() {
                 <ReviewTitle />
             </div>
             <hr />
-            <div className="flex">
+            <CommentContainer>
                 <Comments />
                 <Comments />
-            </div>
+                <Comments />
+                <Comments />
+            </CommentContainer>
         </div>
     );
 }
 
 export default Review;
-const CommentContainer = styled.img`
-    /* margin-top: 20px;
+const CommentContainer = styled.div`
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    background-color: lightblue; */
+`;
+const CommentContainerSingle = styled.div`
+    background-color: lightblue;
 `;
