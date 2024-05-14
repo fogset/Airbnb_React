@@ -12,7 +12,7 @@ import { TbBeach } from "react-icons/tb";
 import { IoWifiOutline } from "react-icons/io5";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import PropertyDateCount from "../components/properties/PropertyDetail/PropertyDateCount";
-import ReviewTitle from "../components/properties/PropertyDetail/ReviewTitle";
+import Review from "../components/properties/PropertyDetail/Review/Review";
 
 function PropertyDetail() {
     return (
@@ -127,11 +127,10 @@ function PropertyDetail() {
                 <div className="mt-12 mb-12">
                     <PropertyDateCount />
                 </div>
-                <hr />
-                <div className="mt-10 flex">
-                    <ReviewTitle />
-                </div>
             </Description>
+            <div className="mt-10">
+                <Review />
+            </div>
         </Container>
     );
 }
