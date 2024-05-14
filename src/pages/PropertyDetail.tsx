@@ -13,6 +13,7 @@ import { IoWifiOutline } from "react-icons/io5";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import PropertyDateCount from "../components/properties/PropertyDetail/PropertyDateCount";
 import Review from "../components/properties/PropertyDetail/Review/Review";
+import Location from "../components/properties/PropertyDetail/Location";
 
 function PropertyDetail() {
     return (
@@ -131,6 +132,9 @@ function PropertyDetail() {
             <div className="mt-10">
                 <Review />
             </div>
+            <div className="mt-10">
+                <Location />
+            </div>
         </Container>
     );
 }
@@ -140,9 +144,10 @@ const Container = styled.div`
     position: relative;
     top: 120px;
     left: 0px;
-    display: grid;
-    place-content: center;
+    /* display: grid;
+    place-content: center; */
     padding-bottom: 100px;
+    margin-left: 5%;
 `;
 const ImageContainer = styled.div`
     width: 1300px;
