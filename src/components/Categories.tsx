@@ -95,6 +95,7 @@ const Container = styled.div`
     width: 100%;
     padding-top: 20px;
     justify-content: center;
+    z-index: 9;
 `;
 const SelectCategory = styled.div`
     margin-right: 25px;
