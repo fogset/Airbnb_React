@@ -1,9 +1,13 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import PropertyListItem from "./PropertyListItem";
 import styled from "styled-components";
 function PropertyList() {
+    const navigate = useNavigate();
+    function GoPropertyDetail() {
+        navigate(`/property/123`);
+    }
     return (
-        <Container>
+        <Container onClick={GoPropertyDetail}>
             <PropertyListItem />
             <PropertyListItem />
             <PropertyListItem />

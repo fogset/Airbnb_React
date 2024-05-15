@@ -11,7 +11,7 @@ function Navbar() {
         <Container>
             <div className="max-w-[1500px] mx-auto px-6">
                 <div className="flex justify-between items-center">
-                    <Link href="/">
+                    <Link to="/">
                         <img src={AirbnbLogo} width={110} height={38} />
                     </Link>
                     <div className="flex space-x-6">
