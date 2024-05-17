@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-function BottomNav() {
+function StartPageBottomNav() {
     return (
         <Container>
             <HorizontalLine />
@@ -9,7 +9,7 @@ function BottomNav() {
     );
 }
 
-export default BottomNav;
+export default StartPageBottomNav;
 const Container = styled.div`
     position: fixed;
     bottom: 0px;

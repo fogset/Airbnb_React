@@ -1,18 +1,21 @@
 import React from "react";
 import { SiAirbnb } from "react-icons/si";
 import styled from "styled-components";
-function TopNav() {
+function StepTopNav() {
     return (
         <Container>
             <div className="ml-10">
                 <SiAirbnb size={40} />
             </div>
-            <Button>Exit</Button>
+            <div className="flex mr-8 gap-4">
+                <Button>Questions?</Button>
+                <Button>Save&exit</Button>
+            </div>
         </Container>
     );
 }
 
-export default TopNav;
+export default StepTopNav;
 const Container = styled.div`
     position: fixed;
     top: 0px;
@@ -27,15 +30,12 @@ const Container = styled.div`
 const Button = styled.div`
     background-color: white;
     height: 45px;
-    width: 80px;
+    width: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
     border-radius: 50px;
-    font-size: larger;
-    position: absolute;
-    right: 50px;
-    bottom: 20%;
+    font-size: 18px;
     border-width: 1px;
 `;

@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import EasyToStart from "../components/createProperty/EasyToStart";
-import BottomNav from "../components/createProperty/BottomNav";
-import TopNav from "../components/createProperty/TopNav";
+import StepTopNav from "../components/createProperty/StepTopNav";
+import StepOne from "../components/createProperty/StepOne";
+import StepBottomNav from "../components/createProperty/StepBottomNav";
 function CreateProperty() {
     return (
         <>
             <Background>
-                <TopNav />
-                <EasyToStart />
-                <BottomNav />
+                <StepTopNav />
+                <StepOne />
+                <StepBottomNav />
             </Background>
         </>
     );
