@@ -18,7 +18,9 @@ function Navbar() {
                         <SearchFilters />
                     </div>
                     <div className="flex items-center space-x-6 relative">
-                        <AddPropertyButton />
+                        <Link to="/become-a-host/123">
+                            <AddPropertyButton />
+                        </Link>
                         <UserNav />
                     </div>
                 </div>

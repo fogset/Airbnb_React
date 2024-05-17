@@ -3,6 +3,7 @@ import { FaUserCircle } from "react-icons/fa";
 import styled from "styled-components";
 import { useState } from "react";
 import LoginOrSignUpModal from "../Modal/LoginOrSignUpModal";
+import { Link } from "react-router-dom";
 function UserNav() {
     const [isOpen, setIsOpen] = useState(false);
     const [openLogin, setOpenLogin] = useState(false);
