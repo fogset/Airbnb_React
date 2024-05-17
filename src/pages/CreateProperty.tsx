@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import EasyToStart from "../components/createProperty/EasyToStart";
 import BottomNav from "../components/createProperty/BottomNav";
+import TopNav from "../components/createProperty/TopNav";
 function CreateProperty() {
     return (
         <>
             <Background>
+                <TopNav />
                 <EasyToStart />
                 <BottomNav />
             </Background>
