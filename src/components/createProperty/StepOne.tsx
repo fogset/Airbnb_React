@@ -21,7 +21,7 @@ function StepOne() {
 //https://stream.media.muscache.com/zFaydEaihX6LP01x8TSCl76WHblb01Z01RrFELxyCXoNek.mp4?v_q=high
 export default StepOne;
 const Container = styled.div`
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;

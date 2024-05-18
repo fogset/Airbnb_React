@@ -1,12 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 function StepBottomNav() {
+    const [curPageNum, setCurPageNum] = useState(0);
+    const navigate = useNavigate();
+    const PageUrlName = new Map();
+    PageUrlName.set(1, "about-your-place");
+    PageUrlName.set(2, "structure");
+    PageUrlName.set(3, "privacy-type");
+
+    function HandleBack() {
+        setCurPageNum(curPageNum - 1);
+    }
+    function handleNext() {
+        setCurPageNum(curPageNum + 1);
+    }
+    useEffect(() => {
+        navigate(`/become-a-host/123/${PageUrlName.get(curPageNum)}`);
+    }, [curPageNum]);
     return (
         <Container>
             <HorizontalLine />
             <ButtonContainer>
-                <BackButton>Back</BackButton>
-                <Button>Next</Button>
+                <BackButton onClick={HandleBack}>Back</BackButton>
+                {curPageNum}
+                <Button onClick={handleNext}>Next</Button>
             </ButtonContainer>
         </Container>
     );
