@@ -15,15 +15,16 @@ function App() {
     const [currentUrl, setCurrentUrl] = useState("null");
     const location = useLocation();
     useEffect(() => {
-        console.log(location.pathname);
         if (location.pathname.includes("become-a-host")) {
             setCurrentUrl("creatProperty");
+        } else {
+            setCurrentUrl("main");
         }
     }, [location]);
 
     return (
         <Container>
-            {currentUrl !== "creatProperty" && <Navbar />}
+            {currentUrl === "main" && <Navbar />}
             {currentUrl === "creatProperty" && <StepTopNav />}
             <Routes>
                 <Route path="/" element={<Main />} />
@@ -33,7 +34,7 @@ function App() {
                 <Route path="/become-a-host/:id/structure" element={<StepTwo />} />
                 <Route path="/become-a-host/:id/privacy-type" element={<StepThree />} />
             </Routes>
-            {currentUrl !== "creatProperty" && <StepBottomNav />}
+            {currentUrl === "creatProperty" && <StepBottomNav />}
         </Container>
     );
 }
