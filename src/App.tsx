@@ -4,16 +4,36 @@ import styled from "styled-components";
 import PropertyDetail from "./pages/PropertyDetail";
 import CreateProperty from "./pages/CreateProperty";
 import { Route, Routes } from "react-router-dom";
-
+import StepOne from "./components/createProperty/StepOne";
+import StepTwo from "./components/createProperty/StepTwo";
+import StepThree from "./components/createProperty/StepThree";
+import { useState, useEffect } from "react";
+import StepBottomNav from "./components/createProperty/StepBottomNav";
+import StepTopNav from "./components/createProperty/StepTopNav";
+import { useLocation } from "react-router-dom";
 function App() {
+    const [currentUrl, setCurrentUrl] = useState("null");
+    const location = useLocation();
+    useEffect(() => {
+        console.log(location.pathname);
+        if (location.pathname.includes("become-a-host")) {
+            setCurrentUrl("creatProperty");
+        }
+    }, [location]);
+
     return (
         <Container>
-            <Navbar />
+            {currentUrl !== "creatProperty" && <Navbar />}
+            {currentUrl === "creatProperty" && <StepTopNav />}
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/property/:id" element={<PropertyDetail />} />
                 <Route path="/become-a-host/:id" element={<CreateProperty />} />
+                <Route path="/become-a-host/:id/about-your-place" element={<StepOne />} />
+                <Route path="/become-a-host/:id/structure" element={<StepTwo />} />
+                <Route path="/become-a-host/:id/privacy-type" element={<StepThree />} />
             </Routes>
+            {currentUrl !== "creatProperty" && <StepBottomNav />}
         </Container>
     );
 }

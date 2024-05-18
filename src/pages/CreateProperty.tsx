@@ -1,8 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import StepTopNav from "../components/createProperty/StepTopNav";
 import StepOne from "../components/createProperty/StepOne";
 import StepBottomNav from "../components/createProperty/StepBottomNav";
+import StepTwo from "../components/createProperty/StepTwo";
+
 function CreateProperty() {
     return (
         <>
