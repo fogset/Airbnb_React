@@ -28,7 +28,8 @@ const Container = styled.div`
     align-items: center;
     border-bottom-color: gray;
     border-bottom-width: thin;
-    z-index: 100;
+    z-index: 101;
+    background-color: white;
 `;
 const Button = styled.div`
     background-color: white;

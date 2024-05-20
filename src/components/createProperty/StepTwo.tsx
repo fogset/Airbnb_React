@@ -199,7 +199,7 @@ const Border = styled.div`
     border-color: gray;
     font-size: larger;
     font-weight: 500;
-    padding: 10px;
+    padding: 15px;
     width: 30%;
     &:hover {
         border-color: black;
