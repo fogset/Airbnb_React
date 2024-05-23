@@ -9,6 +9,7 @@ function StepBottomNav() {
     PageUrlName.set(1, "about-your-place");
     PageUrlName.set(2, "structure");
     PageUrlName.set(3, "privacy-type");
+    PageUrlName.set(4, "location");
 
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
