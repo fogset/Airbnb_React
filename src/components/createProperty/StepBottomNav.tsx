@@ -10,7 +10,7 @@ function StepBottomNav() {
     PageUrlName.set(2, "structure");
     PageUrlName.set(3, "privacy-type");
     PageUrlName.set(4, "location");
-
+    PageUrlName.set(5, "floor-plan");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
