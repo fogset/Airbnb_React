@@ -61,6 +61,13 @@ const Container = styled.div`
 const Title = styled.div`
     margin-top: 10%;
     width: 65%;
+    height: 70%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    padding-bottom: 100px;
 `;
 const CircleBorder = styled.div`
     border-radius: 50%;
