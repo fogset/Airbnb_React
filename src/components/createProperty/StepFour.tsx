@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import GoogleAddressSearch from "../../GoogleAddressSearch";
+import GoogleAddressSearch from "../GoogleAddressSearch";
 function StepFour() {
     return (
         <Container>
