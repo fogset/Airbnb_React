@@ -13,6 +13,7 @@ function StepBottomNav() {
     PageUrlName.set(5, "floor-plan");
     PageUrlName.set(6, "guests");
     PageUrlName.set(7, "bathrooms");
+    PageUrlName.set(8, "stand-out");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
@@ -85,5 +86,5 @@ const Button = styled.div`
 const HorizontalLine = styled.div`
     background-color: #dddddd;
     width: 100%;
-    height: 10px;
+    height: 7px;
 `;

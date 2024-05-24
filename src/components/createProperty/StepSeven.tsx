@@ -67,14 +67,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
 `;
-const BottomContainer = styled.div`
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-`;
+
 const Overflow = styled.div`
     margin-top: 7%;
     width: 55%;
@@ -100,9 +93,4 @@ const CircleBorder = styled.div`
     justify-content: center;
     font-size: 35px;
     padding-bottom: 5px;
-`;
-
-const Image = styled.img`
-    width: 8000px;
-    height: 100%;
 `;
