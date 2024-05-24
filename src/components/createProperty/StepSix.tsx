@@ -1,9 +1,22 @@
 import styled from "styled-components";
 import { useState } from "react";
 import GuestImg from "./SixteenGuests.png";
+import { motion } from "framer-motion";
 function StepSix() {
     const [guest, setGuest] = useState(1);
-
+    const [moveX, setMoveX] = useState(0);
+    function increaseGuest() {
+        if (guest < 16) {
+            setGuest(guest + 1);
+            setMoveX(moveX + 38);
+        }
+    }
+    function decreaseGuest() {
+        if (guest > 1) {
+            setGuest(guest - 1);
+            setMoveX(moveX - 38);
+        }
+    }
     return (
         <Container>
             <Title>
@@ -12,14 +25,20 @@ function StepSix() {
                 </div>
 
                 <BottomContainer>
+                    <motion.div
+                        className="h-[100px] w-full bg-white absolute top-[30px] left-[38px]"
+                        initial={{ x: 0 }}
+                        animate={{ x: moveX }}
+                        transition={{ ease: "easeOut", duration: 0.5 }}
+                    />
                     <Image src={GuestImg} />
                     <div className="text-2xl">
                         How many guests can fit comfortably in your space?
                     </div>
-                    <div className="flex items-center gap-[100px] text-9xl">
-                        <CircleBorder onClick={() => setGuest(guest - 1)}>-</CircleBorder>
+                    <div className="flex items-center gap-[100px] text-9xl font-medium">
+                        <CircleBorder onClick={decreaseGuest}>-</CircleBorder>
                         {guest}
-                        <CircleBorder onClick={() => setGuest(guest + 1)}>+</CircleBorder>
+                        <CircleBorder onClick={increaseGuest}>+</CircleBorder>
                     </div>
                 </BottomContainer>
             </Title>
@@ -41,6 +60,7 @@ const BottomContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    position: relative;
 `;
 const Title = styled.div`
     margin-top: 10%;
