@@ -12,6 +12,7 @@ function StepBottomNav() {
     PageUrlName.set(4, "location");
     PageUrlName.set(5, "floor-plan");
     PageUrlName.set(6, "guests");
+    PageUrlName.set(7, "bathrooms");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }

@@ -8,25 +8,25 @@ function StepSix() {
     function increaseGuest() {
         if (guest < 16) {
             setGuest(guest + 1);
-            setMoveX(moveX + 38);
+            setMoveX(moveX + 48);
         }
     }
     function decreaseGuest() {
         if (guest > 1) {
             setGuest(guest - 1);
-            setMoveX(moveX - 38);
+            setMoveX(moveX - 48);
         }
     }
     return (
         <Container>
-            <Title>
+            <Overflow>
                 <div className="text-4xl font-bold mb-2">
-                    How many guests fit comfortably in your place?
+                    What kind of nathrooms are available to guests
                 </div>
 
                 <BottomContainer>
                     <motion.div
-                        className="h-[100px] w-full bg-white absolute top-[30px] left-[38px]"
+                        className="h-[120px] w-full bg-white absolute top-[30px] left-[80px]"
                         initial={{ x: 0 }}
                         animate={{ x: moveX }}
                         transition={{ ease: "easeOut", duration: 0.5 }}
@@ -41,7 +41,7 @@ function StepSix() {
                         <CircleBorder onClick={increaseGuest}>+</CircleBorder>
                     </div>
                 </BottomContainer>
-            </Title>
+            </Overflow>
         </Container>
     );
 }
@@ -62,7 +62,7 @@ const BottomContainer = styled.div`
     gap: 10px;
     position: relative;
 `;
-const Title = styled.div`
+const Overflow = styled.div`
     margin-top: 10%;
     width: 55%;
     height: 70%;
@@ -90,6 +90,6 @@ const CircleBorder = styled.div`
 `;
 
 const Image = styled.img`
-    width: 100%;
+    width: 8000px;
     height: 100%;
 `;

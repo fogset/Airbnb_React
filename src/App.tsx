@@ -10,6 +10,7 @@ import StepThree from "./components/createProperty/StepThree";
 import StepFour from "./components/createProperty/StepFour";
 import StepFive from "./components/createProperty/StepFive";
 import StepSix from "./components/createProperty/StepSix";
+import StepSeven from "./components/createProperty/StepSeven";
 import { useState, useEffect } from "react";
 import StepBottomNav from "./components/createProperty/StepBottomNav";
 import StepTopNav from "./components/createProperty/StepTopNav";
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/become-a-host/:id/location" element={<StepFour />} />
                 <Route path="/become-a-host/:id/floor-plan" element={<StepFive />} />
                 <Route path="/become-a-host/:id/guests" element={<StepSix />} />
+                <Route path="/become-a-host/:id/bathrooms" element={<StepSeven />} />
             </Routes>
             {currentUrl === "creatProperty" && <StepBottomNav />}
         </Container>
