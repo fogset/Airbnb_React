@@ -45,6 +45,7 @@ function StepFive() {
                     <StyleInput type="checkbox" checked={NoLock} onChange={handleNoLock} />
                     <div className="text-xl">No</div>
                 </div>
+                <div className="pb-44" />
             </Title>
         </Container>
     );
@@ -57,17 +58,16 @@ const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
-`;
-const Title = styled.div`
-    margin-top: 10%;
-    width: 65%;
-    height: 70%;
     overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
     }
-    padding-bottom: 100px;
+`;
+const Title = styled.div`
+    margin-top: 10%;
+    width: 65%;
+    height: 70%;
 `;
 const CircleBorder = styled.div`
     border-radius: 50%;

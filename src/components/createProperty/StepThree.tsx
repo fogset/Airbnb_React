@@ -49,6 +49,11 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 const ScrollContainer = styled.div`
     gap: 10px;
@@ -62,8 +67,8 @@ const ScrollContainer = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-top: 7%;
 `;
 const Border = styled.div`
     border-radius: 10px;

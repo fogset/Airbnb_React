@@ -162,6 +162,7 @@ function StepTwo() {
                         Yurt
                     </Border>
                 </FlexContainer>
+                <div className="pb-44" />
             </TitleAndFlex>
         </Container>
     );
@@ -176,15 +177,15 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-`;
-const TitleAndFlex = styled.div`
-    width: 60%;
-    height: 72%;
     overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
     }
+`;
+const TitleAndFlex = styled.div`
+    width: 60%;
+    height: 72%;
 `;
 const FlexContainer = styled.div`
     display: flex;
