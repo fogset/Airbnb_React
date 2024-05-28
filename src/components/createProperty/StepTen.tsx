@@ -5,24 +5,30 @@ import { useState } from "react";
 function StepTen() {
     const [uploadPhoto, setUploadPhoto] = useState(false);
     return (
-        <Container>
-            <Overflow>
-                <div className="flex flex-col">
-                    <div className="text-4xl font-medium mt-4">
-                        Add some photos of your apartment
+        <>
+            <Container>
+                <Overflow>
+                    <div className="flex flex-col">
+                        <div className="text-4xl font-medium mt-4">
+                            Add some photos of your apartment
+                        </div>
+                        <div className="text-xl mt-4 mb-12">
+                            You'll need 5 photos to get started. You can add more or make changes
+                            later.
+                        </div>
                     </div>
-                    <div className="text-xl mt-4 mb-12">
-                        You'll need 5 photos to get started. You can add more or make changes later.
-                    </div>
-                </div>
-                <Border>
-                    <Image src={logo} />
-                    <Button>Add photos</Button>
-                </Border>
-                <UploadPhoto />
-                <BottomPad />
-            </Overflow>
-        </Container>
+                    <Border>
+                        <Image src={logo} />
+                        <Button onClick={() => setUploadPhoto(!uploadPhoto)}>Add photos</Button>
+                    </Border>
+
+                    <BottomPad />
+                </Overflow>
+            </Container>
+            {uploadPhoto && (
+                <UploadPhoto setUploadPhoto={setUploadPhoto} uploadPhoto={uploadPhoto} />
+            )}
+        </>
     );
 }
 {
@@ -65,7 +71,7 @@ const Overflow = styled.div`
     height: 70%;
 `;
 const BottomPad = styled.div`
-    height: 200px;
+    height: 150px;
 `;
 const Button = styled.button`
     position: absolute;
@@ -84,3 +90,5 @@ const Button = styled.button`
         border-color: black;
     }
 `;
+{
+}

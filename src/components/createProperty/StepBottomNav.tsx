@@ -45,7 +45,7 @@ const Container = styled.div`
     width: 100%;
     height: 100px;
     background-color: white;
-    z-index: 100;
+    z-index: 10;
 `;
 const ButtonContainer = styled.div`
     height: 100%;
