@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import GuestImg from "./SixteenGuests.png";
+import GuestImg from "./Images/SixteenGuests.png";
 import { motion } from "framer-motion";
 function StepSix() {
     const [guest, setGuest] = useState(1);

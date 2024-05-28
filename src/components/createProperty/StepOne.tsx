@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ReactPlayer from "react-player";
-import logo from "./TellUsPlace.png";
+import logo from "./Images/TellUsPlace.png";
 function StepOne() {
     return (
         <Container>

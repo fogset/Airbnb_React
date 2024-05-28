@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "./TellUsPlace.png";
+import logo from "./Images/TellUsPlace.png";
 function StepEight() {
     return (
         <Container>

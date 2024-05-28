@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import logo from "./Images/UploadPhoto.png";
-import UploadPhoto from "./Modal/UploadPhoto";
 import { useState } from "react";
-function StepTen() {
-    const [uploadPhoto, setUploadPhoto] = useState(false);
+function UploadPhoto() {
     return (
         <Container>
             <Overflow>
@@ -16,10 +13,8 @@ function StepTen() {
                     </div>
                 </div>
                 <Border>
-                    <Image src={logo} />
                     <Button>Add photos</Button>
                 </Border>
-                <UploadPhoto />
                 <BottomPad />
             </Overflow>
         </Container>
@@ -28,7 +23,7 @@ function StepTen() {
 {
     /* <Image src={logo} />; */
 }
-export default StepTen;
+export default UploadPhoto;
 const Container = styled.div`
     position: fixed;
     width: 100%;
@@ -37,11 +32,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
+    background-color: #7b7b7b;
 `;
 const Image = styled.img`
     width: 150px;
