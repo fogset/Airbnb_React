@@ -41,6 +41,7 @@ function StepSix() {
                         <CircleBorder onClick={increaseGuest}>+</CircleBorder>
                     </div>
                 </BottomContainer>
+                <div className="pb-44" />
             </Overflow>
         </Container>
     );
@@ -53,6 +54,11 @@ const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 const BottomContainer = styled.div`
     flex-direction: column;
@@ -66,12 +72,6 @@ const Overflow = styled.div`
     margin-top: 10%;
     width: 55%;
     height: 70%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    padding-bottom: 100px;
 `;
 const CircleBorder = styled.div`
     border-radius: 50%;

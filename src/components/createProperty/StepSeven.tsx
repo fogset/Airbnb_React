@@ -54,6 +54,7 @@ function StepSeven() {
                         <CircleBorder onClick={() => setShared(shared + 1)}>+</CircleBorder>
                     </div>
                 </div>
+                <div className="pb-44" />
             </Overflow>
         </Container>
     );
@@ -66,18 +67,17 @@ const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const Overflow = styled.div`
     margin-top: 7%;
     width: 55%;
     height: 70%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    padding-bottom: 100px;
 `;
 const CircleBorder = styled.div`
     border-radius: 50%;

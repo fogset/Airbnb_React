@@ -152,6 +152,7 @@ function StepNine() {
                         Carbon monoxide alarm
                     </Border>
                 </FlexContainer>
+                <div className="pb-44" />
             </Overflow>
         </Container>
     );
@@ -166,17 +167,16 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-`;
-const Overflow = styled.div`
-    margin-top: 7%;
-    width: 55%;
-    height: 70%;
     overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
     }
-    padding-bottom: 100px;
+`;
+const Overflow = styled.div`
+    margin-top: 7%;
+    width: 55%;
+    height: 70%;
 `;
 const FlexContainer = styled.div`
     display: flex;
