@@ -8,25 +8,24 @@ function StepSix() {
     function increaseGuest() {
         if (guest < 16) {
             setGuest(guest + 1);
-            setMoveX(moveX + 48);
+            setMoveX(moveX + 42);
         }
     }
     function decreaseGuest() {
         if (guest > 1) {
             setGuest(guest - 1);
-            setMoveX(moveX - 48);
+            setMoveX(moveX - 42);
         }
     }
     return (
         <Container>
             <Overflow>
                 <div className="text-4xl font-bold mb-2">
-                    What kind of nathrooms are available to guests
+                    What kind of bathrooms are available to guests
                 </div>
-
                 <BottomContainer>
                     <motion.div
-                        className="h-[120px] w-full bg-white absolute top-[30px] left-[80px]"
+                        className="h-[35%] w-full bg-white absolute top-[30px] left-[10%]"
                         initial={{ x: 0 }}
                         animate={{ x: moveX }}
                         transition={{ ease: "easeOut", duration: 0.5 }}
