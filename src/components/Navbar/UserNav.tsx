@@ -25,7 +25,9 @@ function UserNav() {
                     <Button onClick={LoginCLick}>Login in</Button>
                     <hr />
                     <Button>Gift Cards</Button>
-                    <Button>Airbnb your home</Button>
+                    <Link to="/become-a-host/123">
+                        <Button>Airbnb your home</Button>
+                    </Link>
                     <Button>Help Centre</Button>
                 </UserNavContainer>
             )}
