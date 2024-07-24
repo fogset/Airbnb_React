@@ -4,7 +4,6 @@ import styled from "styled-components";
 import AirbnbLogo from "./../../assets/airbnbLogo.png";
 import SearchFilters from "./SearchFilters";
 import UserNav from "./UserNav";
-import AddPropertyButton from "./AddPropertyButton";
 
 function Navbar() {
     return (
@@ -19,7 +18,7 @@ function Navbar() {
                     </div>
                     <div className="flex items-center space-x-6 relative">
                         <Link to="/become-a-host/123">
-                            <AddPropertyButton />
+                            <AddPropertyButton>Airbnb your home</AddPropertyButton>
                         </Link>
                         <UserNav />
                     </div>
@@ -39,4 +38,13 @@ const Container = styled.div`
     border-bottom-width: 1px;
     background-color: white;
     z-index: 10;
+`;
+const AddPropertyButton = styled.div`
+    padding: 8px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    &:hover {
+        background-color: #f7f7f7;
+    }
 `;
