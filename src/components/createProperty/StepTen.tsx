@@ -31,9 +31,7 @@ function StepTen() {
         </>
     );
 }
-{
-    /* <Image src={logo} />; */
-}
+
 export default StepTen;
 const Container = styled.div`
     position: fixed;
@@ -90,5 +88,3 @@ const Button = styled.button`
         border-color: black;
     }
 `;
-{
-}

@@ -150,7 +150,7 @@ const Container = styled.div`
     margin-left: 5%;
 `;
 const ImageContainer = styled.div`
-    width: 1300px;
+    width: 95%;
 `;
 const ProfileImg = styled.img`
     border-radius: 50%;
