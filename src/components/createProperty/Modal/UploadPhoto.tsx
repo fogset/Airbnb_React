@@ -1,22 +1,33 @@
 import styled from "styled-components";
-
+import ImageUploading from "react-images-uploading";
 import { IoCloseOutline, IoAddOutline } from "react-icons/io5";
 import Logo from "../Images/DragAndDrop.png";
 
 function UploadPhoto({ setUploadPhoto, uploadPhoto }) {
+    // const [url, setUrl] = useState("https://i.imgur.com/ndu6pfe.png");
+    // const handleFiles = (files) => {
+    //     console.log(files);
+    //     setUrl(files.base64);
+    // };
+    const [images, setImages] = React.useState([]);
+    const maxNumber = 69;
+    const onChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
     return (
         <Container>
             <Background />
             <Modal>
-                <IoCloseOutline className="absolute top-5 left-5" size={40} />
+                <IoCloseOutline
+                    className="absolute top-5 left-5"
+                    size={40}
+                    onClick={() => setUploadPhoto(false)}
+                />
                 <IoAddOutline className="absolute top-5 right-5" size={40} />
                 <div className="flex flex-col items-center w-[100%]">
-                    <div
-                        className="text-xl font-medium mt-4"
-                        onClick={() => setUploadPhoto(!uploadPhoto)}
-                    >
-                        Upload photos
-                    </div>
+                    <div className="text-xl font-medium mt-4">Upload photos</div>
                     <div className="text-sm text-gray-500">No items selected</div>
                     <Border>
                         <Image src={Logo} />

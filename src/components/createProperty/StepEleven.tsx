@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function StepEleven() {
-    const [uploadPhoto, setUploadPhoto] = useState("sjkfsf");
-    function handleChange(event) {
-        setUploadPhoto(event?.target.value);
-    }
+    const [word, setWord] = useState("");
+    function handleChange() {}
+    useEffect(() => {
+        console.log(word);
+    }, [word]);
     return (
         <>
             <Container>
@@ -14,13 +15,13 @@ function StepEleven() {
                         <div className="text-4xl font-medium mt-4">
                             Now, let's give your house a title
                         </div>
-                        <div className="text-xl mt-4 mb-12">
+                        <div className="text-xl mt-4 mb-9">
                             Short titles work best. Have fun with it—you can always change it later.
+                            {word}
                         </div>
                     </div>
-                    <input type="textarea" name="textValue" />
-                    <StyledTextarea value={uploadPhoto} onChange={handleChange} />;
-                    <BottomPad />
+                    <StyledTextarea value={word} onChange={handleChange} />
+                    <div className="mt-3 text-lg">{word.length}/32</div>
                 </Overflow>
             </Container>
         </>
@@ -43,11 +44,19 @@ const Container = styled.div`
     }
 `;
 const StyledTextarea = styled.textarea`
-    width: 100%;
+    width: 80%;
+    height: 40%;
+    border-width: 3px;
+    border-color: #ec6c6c;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 25px;
 `;
 const Overflow = styled.div`
     width: 50%;
     height: 70%;
+    display: flex;
+    flex-direction: column;
 `;
 const BottomPad = styled.div`
     height: 150px;
