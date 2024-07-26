@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 function StepEleven() {
-    const [word, setWord] = useState("");
-    function handleChange() {}
-    useEffect(() => {
-        console.log(word);
-    }, [word]);
+    const [titleWord, setTitleWord] = useState("fd");
+    function handleChange(event) {
+        setTitleWord(event?.target.value);
+    }
+    // useEffect(() => {
+    //     console.log(titleWord);
+    // }, [titleWord]);
     return (
         <>
             <Container>
@@ -17,11 +19,16 @@ function StepEleven() {
                         </div>
                         <div className="text-xl mt-4 mb-9">
                             Short titles work best. Have fun with it—you can always change it later.
-                            {word}
                         </div>
                     </div>
-                    <StyledTextarea value={word} onChange={handleChange} />
-                    <div className="mt-3 text-lg">{word.length}/32</div>
+                    <StyledTextarea value={titleWord} onChange={handleChange} />
+                    {/* <BottomPad /> */}
+                    <div className="mt-3 text-lg">{titleWord.length}/32</div>
+                    {titleWord.length > 32 && (
+                        <div className="mt-3 text-base text-[#ef3a5e]">
+                            The maximum number of characters allowed is 32.
+                        </div>
+                    )}
                 </Overflow>
             </Container>
         </>
@@ -44,7 +51,7 @@ const Container = styled.div`
     }
 `;
 const StyledTextarea = styled.textarea`
-    width: 80%;
+    width: 90%;
     height: 40%;
     border-width: 3px;
     border-color: #ec6c6c;
