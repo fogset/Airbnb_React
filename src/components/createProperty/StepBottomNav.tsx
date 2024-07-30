@@ -17,6 +17,7 @@ function StepBottomNav() {
     PageUrlName.set(9, "amenities");
     PageUrlName.set(10, "photos");
     PageUrlName.set(11, "title");
+    PageUrlName.set(12, "description");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
