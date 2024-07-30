@@ -19,6 +19,7 @@ function StepBottomNav() {
     PageUrlName.set(11, "title");
     PageUrlName.set(12, "description");
     PageUrlName.set(13, "finish-setup");
+    PageUrlName.set(14, "instant-book");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
