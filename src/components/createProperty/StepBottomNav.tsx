@@ -22,6 +22,7 @@ function StepBottomNav() {
     PageUrlName.set(14, "instant-book");
     PageUrlName.set(15, "visibility");
     PageUrlName.set(16, "price");
+    PageUrlName.set(17, "discount");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
