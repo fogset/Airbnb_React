@@ -23,6 +23,7 @@ function StepBottomNav() {
     PageUrlName.set(15, "visibility");
     PageUrlName.set(16, "price");
     PageUrlName.set(17, "discount");
+    PageUrlName.set(18, "legal");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
