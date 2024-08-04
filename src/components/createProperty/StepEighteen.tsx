@@ -1,19 +1,20 @@
-import { useState } from "react";
 import styled from "styled-components";
 import StepEighteenModal from "./Modal/StepEighteenModal";
+import { useState, useEffect } from "react";
 function Stepeighteen() {
     const [camera, setCamera] = useState(false);
-    const [weekDiscount, setWeekDiscount] = useState(false);
-    const [monthDiscount, setMonthDiscount] = useState(false);
+    const [monitor, setmonitor] = useState(false);
+    const [weapon, setWeapon] = useState(false);
     const handlePromotion = () => {
-        setCamera(!camera);
+        setCamera(true);
     };
-    const handleWeekDiscount = () => {
-        setWeekDiscount(!weekDiscount);
+    const handlemonitor = () => {
+        setmonitor(!monitor);
     };
-    const handleMonthDiscount = () => {
-        setMonthDiscount(!monthDiscount);
+    const handleweapon = () => {
+        setWeapon(!weapon);
     };
+
     return (
         <Container>
             <ScrollContainer>
@@ -28,16 +29,15 @@ function Stepeighteen() {
                 <Border>
                     <div className="flex flex-row w-full relative">
                         <div className="ml-7 text-2xl mb-1">Exterior security cameras</div>
-                        <div
-                            className="flex items-center absolute right-0 h-full"
-                            onClick={handlePromotion}
-                        >
+                        <div className="flex items-center absolute right-0 h-full">
                             <StyleInput
                                 type="checkbox"
                                 checked={camera}
                                 onChange={handlePromotion}
                             />
-                            {camera && StepEighteenModal(setCamera)}
+                            {camera == true && (
+                                <StepEighteenModal setCamera={setCamera} camera={camera} />
+                            )}
                         </div>
                     </div>
                 </Border>
@@ -47,8 +47,8 @@ function Stepeighteen() {
                         <div className="flex items-center absolute right-0 h-full">
                             <StyleInput
                                 type="checkbox"
-                                checked={weekDiscount}
-                                onChange={handleWeekDiscount}
+                                checked={monitor}
+                                onChange={handlemonitor}
                             />
                         </div>
                     </div>
@@ -57,11 +57,7 @@ function Stepeighteen() {
                     <div className="flex flex-row w-full relative">
                         <div className="ml-7 text-2xl mb-1">Weapons</div>
                         <div className="flex items-center absolute right-0 h-full">
-                            <StyleInput
-                                type="checkbox"
-                                checked={monthDiscount}
-                                onChange={handleMonthDiscount}
-                            />
+                            <StyleInput type="checkbox" checked={weapon} onChange={handleweapon} />
                         </div>
                     </div>
                 </Border>
@@ -88,7 +84,7 @@ const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
-    z-index: 100;
+    z-index: 10;
 `;
 const ScrollContainer = styled.div`
     gap: 20px;
