@@ -24,6 +24,7 @@ function StepBottomNav() {
     PageUrlName.set(16, "price");
     PageUrlName.set(17, "discount");
     PageUrlName.set(18, "legal");
+    PageUrlName.set(19, "receipt");
     function HandleBack() {
         setCurPageNum(curPageNum - 1);
     }
