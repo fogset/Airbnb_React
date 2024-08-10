@@ -30,6 +30,7 @@ import { BiBuildingHouse } from "react-icons/bi";
 import { LiaWarehouseSolid } from "react-icons/lia";
 
 function StepTwo() {
+    const [selectedCategory, setSelectredCategory] = useState(null);
     return (
         <Container>
             <TitleAndFlex>
@@ -37,50 +38,150 @@ function StepTwo() {
                     Which of these best describes your place?
                 </div>
                 <FlexContainer>
-                    <Border>
-                        <MdOutlineHouse size={45} />
-                        House
-                    </Border>
-                    <Border>
-                        <PiBuildingApartment size={45} />
-                        Apartment
-                    </Border>
-                    <Border>
-                        <PiBarn size={45} />
-                        Barn
-                    </Border>
-                    <Border>
-                        <TbCoffee size={45} />
-                        Bed & Breakfast
-                    </Border>
-                    <Border>
-                        <LuSailboat size={45} />
-                        Boat
-                    </Border>
-                    <Border>
-                        <MdCabin size={45} />
-                        Cabin
-                    </Border>
-                    <Border>
-                        <TbCamper size={45} />
-                        Camper/RV
-                    </Border>
-                    <Border>
-                        <PiBuildings size={45} />
-                        Casa particular
-                    </Border>
-                    <Border>
-                        <GiCastle size={45} />
-                        Castle
-                    </Border>
-                    <Border>
-                        <GiCaveEntrance size={45} />
-                        Cave
-                    </Border>
-                    <Border>
-                        <PiShippingContainerDuotone size={45} />
-                        Container
-                    </Border>
+                    {selectedCategory === "House" ? (
+                        <SelectedBorder>
+                            <MdOutlineHouse size={45} />
+                            House
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("House")}>
+                            <MdOutlineHouse size={45} />
+                            House
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Apartment" ? (
+                        <SelectedBorder>
+                            <PiBuildingApartment size={45} />
+                            Apartment
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Apartment")}>
+                            <PiBuildingApartment size={45} />
+                            Apartment
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Barn" ? (
+                        <SelectedBorder>
+                            <PiBarn size={45} />
+                            Barn
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Barn")}>
+                            <PiBarn size={45} />
+                            Barn
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Bed & Breakfast" ? (
+                        <SelectedBorder>
+                            <TbCoffee size={45} />
+                            Bed & Breakfast
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Bed & Breakfast")}>
+                            <TbCoffee size={45} />
+                            Bed & Breakfast
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Boat" ? (
+                        <SelectedBorder>
+                            <LuSailboat size={45} />
+                            Boat
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Boat")}>
+                            <LuSailboat size={45} />
+                            Boat
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Cabin" ? (
+                        <SelectedBorder>
+                            <MdCabin size={45} />
+                            Cabin
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Cabin")}>
+                            <MdCabin size={45} />
+                            Cabin
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Camper/RV" ? (
+                        <SelectedBorder>
+                            <TbCamper size={45} />
+                            Camper/RV
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Camper/RV")}>
+                            <TbCamper size={45} />
+                            Camper/RV
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Casa particular" ? (
+                        <SelectedBorder>
+                            <PiBuildings size={45} />
+                            Casa particular
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Casa particular")}>
+                            <PiBuildings size={45} />
+                            Casa particular
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Castle" ? (
+                        <SelectedBorder>
+                            <GiCastle size={45} />
+                            Castle
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Castle")}>
+                            <GiCastle size={45} />
+                            Castle
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Cave" ? (
+                        <SelectedBorder>
+                            <GiCaveEntrance size={45} />
+                            Cave
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Cave")}>
+                            <GiCaveEntrance size={45} />
+                            Cave
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Container" ? (
+                        <SelectedBorder>
+                            <PiShippingContainerDuotone size={45} />
+                            Container
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Container")}>
+                            <PiShippingContainerDuotone size={45} />
+                            Container
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Cycladic home" ? (
+                        <SelectedBorder>
+                            <AiFillAlert size={45} />
+                            Cycladic home
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Cycladic home")}>
+                            <AiFillAlert size={45} />
+                            Cycladic home
+                        </Border>
+                    )}
+
                     <Border>
                         <AiFillAlert size={45} />
                         Cycladic home
@@ -206,4 +307,15 @@ const Border = styled.div`
         border-color: black;
         border-width: 3px;
     }
+`;
+const SelectedBorder = styled.div`
+    border-radius: 10px;
+    height: 120px;
+    width: 200px;
+    font-size: larger;
+    font-weight: 500;
+    padding: 15px;
+    width: 30%;
+    border-color: black;
+    border-width: 3px;
 `;
