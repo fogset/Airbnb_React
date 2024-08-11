@@ -31,6 +31,9 @@ import { LiaWarehouseSolid } from "react-icons/lia";
 
 function StepTwo() {
     const [selectedCategory, setSelectredCategory] = useState(null);
+    useEffect(() => {
+        console.log(selectedCategory);
+    }, [selectedCategory]);
     return (
         <Container>
             <TitleAndFlex>
@@ -181,87 +184,218 @@ function StepTwo() {
                             Cycladic home
                         </Border>
                     )}
+                    {selectedCategory === "Dammuso" ? (
+                        <SelectedBorder>
+                            <GiGreenhouse size={45} />
+                            Dammuso
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Dammuso")}>
+                            <GiGreenhouse size={45} />
+                            Dammuso
+                        </Border>
+                    )}
+                    {selectedCategory === "Dome" ? (
+                        <SelectedBorder>
+                            <FaLandmarkDome size={45} />
+                            Dome
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Dome")}>
+                            <FaLandmarkDome size={45} />
+                            Dome
+                        </Border>
+                    )}
+                    {selectedCategory === "Earth home" ? (
+                        <SelectedBorder>
+                            <RiEarthquakeLine size={45} />
+                            Earth home
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Earth home")}>
+                            <RiEarthquakeLine size={45} />
+                            Earth home
+                        </Border>
+                    )}
 
-                    <Border>
-                        <AiFillAlert size={45} />
-                        Cycladic home
-                    </Border>
-                    <Border>
-                        <GiGreenhouse size={45} />
-                        Dammuso
-                    </Border>
-                    <Border>
-                        <FaLandmarkDome size={45} />
-                        Dome
-                    </Border>
-                    <Border>
-                        <RiEarthquakeLine size={45} />
-                        Earth home
-                    </Border>
-                    <Border>
-                        <PiFarm size={45} />
-                        Farm
-                    </Border>
-                    <Border>
-                        <GiFamilyHouse size={45} />
-                        Guesthouse
-                    </Border>
-                    <Border>
-                        <FaHotel size={45} />
-                        Hotel
-                    </Border>
-                    <Border>
-                        <MdOutlineHouseboat size={45} />
-                        Houseboat
-                    </Border>
-                    <Border>
-                        <FaHouseSignal size={45} />
-                        Kezhan
-                    </Border>
-                    <Border>
-                        <BiBuildingHouse size={45} />
-                        Minsu
-                    </Border>
-                    <Border>
-                        <PiLighthouseLight size={45} />
-                        Riad
-                    </Border>
-                    <Border>
-                        <LiaWarehouseSolid size={45} />
-                        Ryokan
-                    </Border>
-                    <Border>
-                        <FaCaravan size={45} />
-                        Shepherd's hut
-                    </Border>
-                    <Border>
-                        <GiCampingTent size={45} />
-                        Tent
-                    </Border>
-                    <Border>
-                        <MdOutlineOtherHouses size={45} />
-                        Tiny home
-                    </Border>
-                    <Border>
-                        <GiHeartTower size={45} />
-                        Tower
-                    </Border>
-                    <Border>
-                        <GiTreehouse size={45} />
-                        Tree house
-                    </Border>
-                    <Border>
-                        <GiMushroomHouse size={45} />
-                        Trullo
-                    </Border>
-                    <Border>
-                        <PiWindmill size={45} />
-                        Windmill
-                    </Border>
-                    <Border>
-                        <FaHouseUser size={45} />
-                        Yurt
-                    </Border>
+                    {selectedCategory === "Farm" ? (
+                        <SelectedBorder>
+                            <PiFarm size={45} />
+                            Farm
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Farm")}>
+                            <PiFarm size={45} />
+                            Farm
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Guesthouse" ? (
+                        <SelectedBorder>
+                            <GiFamilyHouse size={45} />
+                            Guesthouse
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Guesthouse")}>
+                            <GiFamilyHouse size={45} />
+                            Guesthouse
+                        </Border>
+                    )}
+
+                    {selectedCategory === "Hotel" ? (
+                        <SelectedBorder>
+                            <FaHotel size={45} />
+                            Hotel
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Hotel")}>
+                            <FaHotel size={45} />
+                            Hotel
+                        </Border>
+                    )}
+                    {selectedCategory === "Houseboat" ? (
+                        <SelectedBorder>
+                            <MdOutlineHouseboat size={45} />
+                            Houseboat
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Houseboat")}>
+                            <MdOutlineHouseboat size={45} />
+                            Houseboat
+                        </Border>
+                    )}
+                    {selectedCategory === "Kezhan" ? (
+                        <SelectedBorder>
+                            <FaHouseSignal size={45} />
+                            Kezhan
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Kezhan")}>
+                            <FaHouseSignal size={45} />
+                            Kezhan
+                        </Border>
+                    )}
+                    {selectedCategory === "Minsu" ? (
+                        <SelectedBorder>
+                            <BiBuildingHouse size={45} />
+                            Minsu
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Minsu")}>
+                            <BiBuildingHouse size={45} />
+                            Minsu
+                        </Border>
+                    )}
+                    {selectedCategory === "Riad" ? (
+                        <SelectedBorder>
+                            <PiLighthouseLight size={45} />
+                            Riad
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Riad")}>
+                            <PiLighthouseLight size={45} />
+                            Riad
+                        </Border>
+                    )}
+                    {selectedCategory === "Ryokan" ? (
+                        <SelectedBorder>
+                            <LiaWarehouseSolid size={45} />
+                            Ryokan
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Ryokan")}>
+                            <LiaWarehouseSolid size={45} />
+                            Ryokan
+                        </Border>
+                    )}
+                    {selectedCategory === "Shepherd's hut" ? (
+                        <SelectedBorder>
+                            <FaCaravan size={45} />
+                            Shepherd's hut
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Shepherd's hut")}>
+                            <FaCaravan size={45} />
+                            Shepherd's hut
+                        </Border>
+                    )}
+                    {selectedCategory === "Tent" ? (
+                        <SelectedBorder>
+                            <GiCampingTent size={45} />
+                            Tent
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Tent")}>
+                            <GiCampingTent size={45} />
+                            Tent
+                        </Border>
+                    )}
+                    {selectedCategory === "Tiny home" ? (
+                        <SelectedBorder>
+                            <MdOutlineOtherHouses size={45} />
+                            Tiny home
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Tiny home")}>
+                            <MdOutlineOtherHouses size={45} />
+                            Tiny home
+                        </Border>
+                    )}
+                    {selectedCategory === "Tower" ? (
+                        <SelectedBorder>
+                            <GiHeartTower size={45} />
+                            Tiny home
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Tower")}>
+                            <GiHeartTower size={45} />
+                            Tiny home
+                        </Border>
+                    )}
+                    {selectedCategory === "Tree house" ? (
+                        <SelectedBorder>
+                            <GiTreehouse size={45} />
+                            Tree house
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Tree house")}>
+                            <GiTreehouse size={45} />
+                            Tree house
+                        </Border>
+                    )}
+                    {selectedCategory === "Trullo" ? (
+                        <SelectedBorder>
+                            <GiMushroomHouse size={45} />
+                            Trullo
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Trullo")}>
+                            <GiMushroomHouse size={45} />
+                            Trullo
+                        </Border>
+                    )}
+                    {selectedCategory === "Windmill" ? (
+                        <SelectedBorder>
+                            <PiWindmill size={45} />
+                            Windmill
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Windmill")}>
+                            <PiWindmill size={45} />
+                            Windmill
+                        </Border>
+                    )}
+                    {selectedCategory === "Yurt" ? (
+                        <SelectedBorder>
+                            <FaHouseUser size={45} />
+                            Yurt
+                        </SelectedBorder>
+                    ) : (
+                        <Border onClick={() => setSelectredCategory("Yurt")}>
+                            <FaHouseUser size={45} />
+                            Yurt
+                        </Border>
+                    )}
                 </FlexContainer>
                 <div className="pb-44" />
             </TitleAndFlex>
